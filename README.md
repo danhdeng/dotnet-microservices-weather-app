@@ -1,4 +1,6 @@
-…or create a new repository on the command line
+# Github Setup for the solution
+
+create a new repository on the command line
 
 echo "# dotnet-microservices-weather-app" >> README.md
 
