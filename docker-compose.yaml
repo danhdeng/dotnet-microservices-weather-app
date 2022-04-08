@@ -1,0 +1,33 @@
+#version: '3.8'
+#services:
+
+#  db:
+#	image: postgres:14.1-alpine
+#	restart: always
+#	environment:
+#	  - POSTGRES_USER=postgres
+#	  - POSTGRES_PASSWORD=postgres
+
+
+version: '3.8'
+services:
+  cloud-weather-postgres:
+    image: postgres:14.1-alpine
+    restart: always
+    environment:
+      - POSTGRES_DATABASE=cloud_weather_dev
+      - POSTGRES_USER=dan_test
+      - POSTGRES_PASSWORD=dan_test
+    ports:
+      - '5432:5432'
+    volumes: 
+      - postgres-data:/data/db
+    networks:
+      - cloud-weather-services
+volumes:
+  postgres-data:
+    driver: local
+
+networks:
+  cloud-weather-services:
+    driver: bridge
