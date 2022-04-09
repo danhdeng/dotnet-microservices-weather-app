@@ -41,3 +41,20 @@ dotnet new console -o CloudWeather.DataLoader
 # add all projects in the sub-directory running in powershell
 
 dotnet sln Microservices-Weather.sln add (ls -r \*_/_.csproj)
+
+
+# to launch the docker container
+
+docker compose up -d
+
+# to shut donw the container
+
+docker compose down
+
+# prepare the entity framework migration
+
+dotnet ef migrations add initial-migration
+
+#update entity framework to the lastest version
+
+dotnet tool update --global dotnet-ef
