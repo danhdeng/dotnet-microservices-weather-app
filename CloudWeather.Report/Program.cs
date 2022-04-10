@@ -25,7 +25,9 @@ builder.Services.AddDbContext<WeatherReportDbContext>(
 
 var app = builder.Build();
 
-app.MapGet("/weather-report/{zip}", async (string zip, [FromQuery] int? days, IWeatherReportAggregator weatherReportAggregator) =>
+app.MapGet(
+    "/weather-report/{zip}", 
+    async (string zip, [FromQuery] int? days, IWeatherReportAggregator weatherReportAggregator) =>
 {
     if (days == null || days < 1 || days > 30)
     {
