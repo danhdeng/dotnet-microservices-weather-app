@@ -12,7 +12,7 @@ namespace CloudWeather.Report.BusinessLogic
         /// <param name="zip"></param>
         /// <param name="days"></param>
         /// <returns></returns>
-        public Task<WeatherReport> BuildReport(string zip, int days);
+        public Task<WeatherReport> BuildReport(string zip, int? days);
     }
     public class WeatherReportAggregator : IWeatherReportAggregator
     {
@@ -31,7 +31,7 @@ namespace CloudWeather.Report.BusinessLogic
             _weatherDataConfig = weatherDataConfig.Value;
             _db = db;
         }
-        public async Task<WeatherReport> BuildReport(string zip, int days) { 
+        public async Task<WeatherReport> BuildReport(string zip, int? days) { 
             var httpClient=_http.CreateClient();
             var precipData = await fetchPrecipitationData(httpClient, zip, days);
             var totalSnow = GetTotalSnow(precipData);
