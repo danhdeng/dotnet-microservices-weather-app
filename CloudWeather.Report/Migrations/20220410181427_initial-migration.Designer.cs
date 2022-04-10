@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CloudWeather.Report.Migrations
 {
     [DbContext(typeof(WeatherReportDbContext))]
-    [Migration("20220410163441_initial-migration")]
+    [Migration("20220410181427_initial-migration")]
     partial class initialmigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -51,7 +51,7 @@ namespace CloudWeather.Report.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("weatherreport", (string)null);
+                    b.ToTable("weather_report", (string)null);
                 });
 #pragma warning restore 612, 618
         }

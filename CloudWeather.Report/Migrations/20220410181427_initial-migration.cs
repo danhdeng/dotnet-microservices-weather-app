@@ -10,7 +10,7 @@ namespace CloudWeather.Report.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "weatherreport",
+                name: "weather_report",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -23,14 +23,14 @@ namespace CloudWeather.Report.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_weatherreport", x => x.Id);
+                    table.PrimaryKey("PK_weather_report", x => x.Id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "weatherreport");
+                name: "weather_report");
         }
     }
 }

@@ -49,7 +49,7 @@ namespace CloudWeather.Report.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("weatherreport", (string)null);
+                    b.ToTable("weather_report", (string)null);
                 });
 #pragma warning restore 612, 618
         }

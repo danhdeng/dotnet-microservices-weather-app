@@ -15,7 +15,7 @@ builder.Services.AddDbContext<PrecipitationDbContext>(
 
 var app = builder.Build();
 
-app.MapGet("/precipitation/{zip}",async (string zip, [FromQuery] int? days, PrecipitationDbContext db)=>{
+app.MapGet("/observation/{zip}", async (string zip, [FromQuery] int? days, PrecipitationDbContext db)=>{
     if (days == null || days < 0 || days > 30) {
         return Results.BadRequest("Please enter a 'days' query paramter or days must be greater than zero and less than 30");
     }
@@ -26,4 +26,11 @@ app.MapGet("/precipitation/{zip}",async (string zip, [FromQuery] int? days, Prec
     return Results.Ok(results);
 });
 
+
+app.MapPost("/observation", async (Precipitation precipitation, PrecipitationDbContext dbContext) =>
+{
+    precipitation.CreateOn = precipitation.CreateOn.ToUniversalTime();
+    await dbContext.AddAsync<Precipitation>(precipitation);
+    await dbContext.SaveChangesAsync();
+});
 app.Run();

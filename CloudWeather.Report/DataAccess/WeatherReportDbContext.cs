@@ -17,7 +17,7 @@ namespace CloudWeather.Report.DataAccess
 
         private void SnakeCaseIdentityTableNames(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<WeatherReport>(b => { b.ToTable("weatherreport"); });
+            modelBuilder.Entity<WeatherReport>(b => { b.ToTable("weather_report"); });
         }
     }
 }
