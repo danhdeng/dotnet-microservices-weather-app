@@ -9,7 +9,7 @@ builder.Services.AddDbContext<PrecipitationDbContext>(
     {
         options.EnableSensitiveDataLogging();
         options.EnableDetailedErrors();
-        options.UseNpgsql(builder.Configuration.GetConnectionString("WeatherDb"));
+        options.UseNpgsql(builder.Configuration.GetConnectionString("PrecipitationDb"));
     }, ServiceLifetime.Transient
 );
 
