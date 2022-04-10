@@ -55,6 +55,9 @@ docker compose down
 
 dotnet ef migrations add initial-migration
 
-#update entity framework to the lastest version
+# update entity framework to the lastest version
 
 dotnet tool update --global dotnet-ef
+
+# update database with the migrations
+dotnet ef database update
