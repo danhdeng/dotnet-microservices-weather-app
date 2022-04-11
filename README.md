@@ -68,3 +68,11 @@ docker build -f ./Dockerfile -t cloud-weather-temperature:latest .
 docker build -f ./Dockerfile -t cloud-weather-report:latest .
 docker build -f ./Dockerfile -t cloud-weather-dataloader:latest .
 
+
+# entity framework data migrations by generating script
+
+dotnet ef migrations script --idempotent -o 000_init_tempdb.sql
+
+# Create a User with Credentail in Postgres
+
+create USER weather_stage WITH password "MyP@ssw0rd"
