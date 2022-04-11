@@ -113,8 +113,8 @@ List<int> PostTemperature(string zip, DateTime day, HttpClient temperatureHttpCl
 
     TemperatureModel temperature = new TemperatureModel
     {
-        TempHighF=highLowTemps[0],
-        TempLowF=highLowTemps[1],
+        TempHighF=highLowTemps[1],
+        TempLowF=highLowTemps[0],
         ZipCode=zip,
         CreatedOn = day
     };
