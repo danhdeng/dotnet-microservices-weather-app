@@ -77,7 +77,7 @@ namespace CloudWeather.Report.BusinessLogic
             return Math.Round(totalSnow, 1);
         }
 
-        private async Task<List<PrecipitationModel>> fetchPrecipitationData(HttpClient httpClient, string zip, int days)
+        private async Task<List<PrecipitationModel>> fetchPrecipitationData(HttpClient httpClient, string zip, int? days)
         {
             var endpoint = BuildPrecipitationServiceEndpoint(zip, days);
             var precipitationRecords = await httpClient.GetAsync(endpoint);
@@ -87,7 +87,7 @@ namespace CloudWeather.Report.BusinessLogic
 
             return precipitationData ?? new List<PrecipitationModel>();
         }
-        private string BuildPrecipitationServiceEndpoint(string zip, int days)
+        private string BuildPrecipitationServiceEndpoint(string zip, int? days)
         {
             var precipServiceProtocol = _weatherDataConfig.PrecipDataProtocol;
             var precipServiceHost = _weatherDataConfig.PrecipDataHost;
@@ -96,7 +96,7 @@ namespace CloudWeather.Report.BusinessLogic
 
         }
 
-        private async Task<List<TemperatureModel>> fetchTemperatureData(HttpClient httpClient, string zip, int days)
+        private async Task<List<TemperatureModel>> fetchTemperatureData(HttpClient httpClient, string zip, int? days)
         {
             var endpoint = BuildTemperatureServiceEndpoint(zip, days);
             var temperatureRecords = await httpClient.GetAsync(endpoint);
@@ -107,7 +107,7 @@ namespace CloudWeather.Report.BusinessLogic
             return temperatureData ?? new List<TemperatureModel>();
         }
 
-        private string BuildTemperatureServiceEndpoint(string zip, int days)
+        private string BuildTemperatureServiceEndpoint(string zip, int? days)
         {
             var temperatureServicePorotcol = _weatherDataConfig.TempDataProtocol;
             var temperatureServiceHost = _weatherDataConfig.TempDataHost;
