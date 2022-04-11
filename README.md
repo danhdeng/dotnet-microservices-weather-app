@@ -61,3 +61,10 @@ dotnet tool update --global dotnet-ef
 
 # update database with the migrations
 dotnet ef database update
+
+# build a docker image
+docker build -f ./Dockerfile -t cloud-weather-precipitation:latest .
+docker build -f ./Dockerfile -t cloud-weather-temperature:latest .
+docker build -f ./Dockerfile -t cloud-weather-report:latest .
+docker build -f ./Dockerfile -t cloud-weather-dataloader:latest .
+
